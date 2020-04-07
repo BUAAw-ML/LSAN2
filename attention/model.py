@@ -70,6 +70,10 @@ class StructuredSelfAttention(BasicModule):
         label = self.label_embed.weight.data
         m1 = torch.bmm(label.expand(self.batch_size, self.n_classes, self.lstm_hid_dim), h1.transpose(1, 2))
         m2 = torch.bmm(label.expand(self.batch_size, self.n_classes, self.lstm_hid_dim), h2.transpose(1, 2))
+        print(m1.shape)
+        print(h1.shape)
+        exit()
+
         label_att= torch.cat((torch.bmm(m1,h1),torch.bmm(m2,h2)),2)
         # label_att = F.normalize(label_att, p=2, dim=-1)
         # self_att = F.normalize(self_att, p=2, dim=-1) #all can
