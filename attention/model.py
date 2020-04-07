@@ -84,7 +84,7 @@ class StructuredSelfAttention(BasicModule):
 
         doc = weight1*label_att+weight2*self_att
 
-        doc = self_att
+        # doc = self_att
         # there two method, for simple, just add
         # also can use linear to do it
 
