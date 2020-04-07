@@ -3,12 +3,12 @@ from mxnet.contrib import text
 import torch.utils.data as data_utils
 import torch
 def load_data(batch_size=64):
-    X_tst = np.load("/data/blchen/text/preprocessed/AAPD/X_test.npy")
-    X_trn = np.load("/data/blchen/text/preprocessed/AAPD/X_train.npy")
-    Y_trn = np.load("/data/blchen/text/preprocessed/AAPD/y_train.npy")
-    Y_tst = np.load("/data/blchen/text/preprocessed/AAPD/y_test.npy")
-    label_embed = np.load("/data/blchen/text/preprocessed/AAPD/label_embed.npy")
-    embed = text.embedding.CustomEmbedding('/data/blchen/text/preprocessed/AAPD/word_embed.txt')
+    X_tst = np.load("/data/AAPD/X_test.npy")
+    X_trn = np.load("/data/AAPD/X_train.npy")
+    Y_trn = np.load("/data/AAPD/y_train.npy")
+    Y_tst = np.load("/data/AAPD/y_test.npy")
+    label_embed = np.load("/data/AAPD/label_embed.npy")
+    embed = text.embedding.CustomEmbedding('/data/AAPD/word_embed.txt')
     train_data = data_utils.TensorDataset(torch.from_numpy(X_trn).type(torch.LongTensor),
                                           torch.from_numpy(Y_trn).type(torch.LongTensor))
     test_data = data_utils.TensorDataset(torch.from_numpy(X_tst).type(torch.LongTensor),
