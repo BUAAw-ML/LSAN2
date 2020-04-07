@@ -3,7 +3,7 @@ from mxnet.contrib import text
 import torch.utils.data as data_utils
 import torch
 def load_data(batch_size=64):
-    X_tst = np.load("/data/AAPD/X_test.npy")
+    X_tst = np.load("./data/AAPD/X_test.npy")
     X_trn = np.load("/data/AAPD/X_train.npy")
     Y_trn = np.load("/data/AAPD/y_train.npy")
     Y_tst = np.load("/data/AAPD/y_test.npy")
