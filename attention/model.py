@@ -71,8 +71,8 @@ class StructuredSelfAttention(BasicModule):
         m1 = torch.bmm(label.expand(self.batch_size, self.n_classes, self.lstm_hid_dim), h1.transpose(1, 2))
         m2 = torch.bmm(label.expand(self.batch_size, self.n_classes, self.lstm_hid_dim), h2.transpose(1, 2))
 
-        m1 = F.softmax(m1, -1)
-        m2 = F.softmax(m2, -1)
+        # m1 = F.softmax(m1, -1)
+        # m2 = F.softmax(m2, -1)
 
         #
         # print(m1.shape)
@@ -89,7 +89,7 @@ class StructuredSelfAttention(BasicModule):
 
         doc = weight1*label_att+weight2*self_att
 
-        # doc = self_att
+        doc = label_att
         # there two method, for simple, just add
         # also can use linear to do it
 
