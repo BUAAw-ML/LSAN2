@@ -81,10 +81,8 @@ class StructuredSelfAttention(BasicModule):
         doc = weight1*label_att+weight2*self_att
         # there two method, for simple, just add
         # also can use linear to do it
-        print(doc.shape)
-        pred = torch.mean(doc, -1)
-        print(pred.shape)
-        exit()
+
+        pred = torch.sigmoid(torch.sum(doc, -1))
 
         # avg_sentence_embeddings = torch.sum(doc, 1)/self.n_classes
         # #
